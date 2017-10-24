@@ -10,7 +10,7 @@
 		    <div class="cont">
 		    	<h3>{{articleData.title}}</h3>
 		        <div class="time"><p>{{articleData.time}}<span><img src="../assets/img/zan.png" alt=""/></span></p></div>
-		        <div class="text-box" v-html="articleData.content"></div>
+		        <div id="p1" class="text-box" v-html="articleData.content"></div>
 		    </div>
 		</div>
 		<div class="foot-btn">
@@ -58,6 +58,7 @@
 </script>
 <style scoped>
 	html,body{ overflow-x: hidden; }
+	#p1{line-height: 0.45rem;margin-bottom: 0.1rem;text-indent:0.5rem;margin: 10px;}
 	.nav{width:100%; position:fixed;top:0;left:0; background:#fff; border-bottom:1px solid #e8eaec; z-index:99;}
 	.nav ul{width:6.4rem;height:0.45rem; padding-top:0.15rem; margin:0 auto;}
 	.nav ul li{width:0.29rem;height:0.31rem; background:url(../assets/img/history.png) no-repeat 0 0; background-size:100%; margin:0 0 0 0.38rem;}
@@ -66,6 +67,7 @@
 	.content .header{ padding:0.39rem 0.28rem 0.15rem 0.28rem; height:auto; background: none}
 	.header h2{ float:left; margin-right:0.18rem;}
 	.header p{ float:left; margin-top:0.18rem; font-size:0.3rem;}
+	.header img{width:100%;height: 40%;}
 	
 	.content .cont{ padding:0 0.38rem; color:#494d4d;}
 	.cont h3{ font-size:0.4rem; line-height:0.6rem; padding-bottom:0.25rem; border-bottom:1px solid #494d4d;}
@@ -76,6 +78,7 @@
 	
 	.cont .text-box{ font-size:0.25rem;}
 	.text-box p{ line-height:0.45rem; margin-bottom:0.1rem;}
+	.text-box p img{width:60%;height: 30%;}
 	.foot-btn{width:100%;height:0.8rem; background:#fff; border-top:1px solid #e8eaec; position:fixed; left:0;bottom:0;}
 	.foot-btn ul{width:6.4rem; margin:0 auto;height:0.52rem; margin-top:0.16rem;}
 	.foot-btn ul li{ float:left;}
