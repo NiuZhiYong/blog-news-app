@@ -6,10 +6,10 @@
 		    </ul>
 		</div>
 		<div class="content">
-			<div class="header clear"><h2><img src="../assets/img/next_img.png" alt=""/></h2><p>用户名</p></div>
+			<div class="header clear"><h2></h2><p><img :src="this.articleData.pic" alt=""></p></div>
 		    <div class="cont">
-		    	<h3></h3>
-		        <div class="time"><p><span><img src="../assets/img/zan.png" alt=""/></span></p></div>
+		    	<h3>{{articleData.title}}</h3>
+		        <div class="time"><p>{{articleData.time}}<span><img src="../assets/img/zan.png" alt=""/></span></p></div>
 		        <div class="text-box" v-html="articleData.content"></div>
 		    </div>
 		</div>
@@ -35,14 +35,8 @@
 	export default{
 		data(){
 			return{
-				articleData:{}
+				articleData:{},
 			}
-		},
-		mounted(){
-			var id=this.$route.path.split("/")[2];
-			console.log(this.$route.path)
-			console.log(id)
-			this.fetchDate(id);
 		},
 		methods:{
 			fetchDate(id){
@@ -53,6 +47,12 @@
 					console.log('article',err)
 				})
 			}
+		},
+		mounted(){
+			var id=this.$route.path.split("/")[2];
+			console.log(this.$route.path)
+			console.log(id)
+			this.fetchDate(id);
 		}
 	}
 </script>
