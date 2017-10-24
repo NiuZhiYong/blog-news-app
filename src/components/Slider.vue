@@ -38,7 +38,13 @@
 	export default{
 		mounted(){
 			this.slider();
+            this.fetchDate();
 		},
+        data(){
+            return{
+                imgList:[]
+            }
+        },
 		methods:{
 			slider(){
 				$(function (){
@@ -52,7 +58,16 @@
 						}
 					});
 				});
-			}
+			},
+            fetchDate(){
+                var _this=this;
+                this.$http.get('https://way.jd.com/jisuapi/get?channel=头条&num=10&start=0&appkey=91ab6d77051f78585e07966eec10f45e').then(function(res){                  
+                    _this.arrList=res.data.result.result;
+                    console.log(_this.arrList.result.list)
+                }).catch(function(err){
+                    console.log('Home',err);
+                });
+            }
 		}
 	}
 </script>

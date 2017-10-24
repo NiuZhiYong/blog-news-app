@@ -20,7 +20,7 @@ export default [
 	component:Column
   },
   {
-  path:'/article',
+  path:'/article/:index',
   component:Article
   },
   {

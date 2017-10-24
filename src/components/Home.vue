@@ -9,7 +9,7 @@
 		                	<h2>{{index}}{{item.title}}</h2>
 	                    	<p>{{item.time}}{{item.src}}</p>
 		                </a> -->
-		                <router-link to="/article">
+		                <router-link :to="'/article/'+index">
 		                	<a href="javascript:;">
 		                		<h2>{{item.title}}</h2>
 		                		<p>{{item.time}}{{item.src}}</p>

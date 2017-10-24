@@ -1,15 +1,15 @@
 <template>
-	<div>
+	<div id="article">
 		<div class="nav">
 			<ul>
 		    	<li class="l-btn" onclick="window.history.go(-1)"></li>
 		    </ul>
 		</div>
 		<div class="content">
-			<div class="header clear"><h2><img :src="articleData.author_face" alt=""/></h2><p>智能社</p></div>
+			<div class="header clear"><h2><img src="../assets/img/next_img.png" alt=""/></h2><p>用户名</p></div>
 		    <div class="cont">
-		    	<h3>{{articleData.title}}</h3>
-		        <div class="time"><p>{{articleData.time | normalTime}} <span><img src="../assets/img/zan.png" alt=""/></span></p></div>
+		    	<h3></h3>
+		        <div class="time"><p><span><img src="../assets/img/zan.png" alt=""/></span></p></div>
 		        <div class="text-box" v-html="articleData.content"></div>
 		    </div>
 		</div>
@@ -31,6 +31,31 @@
 		</div>
 	</div>
 </template>
+<script>
+	export default{
+		data(){
+			return{
+				articleData:{}
+			}
+		},
+		mounted(){
+			var id=this.$route.path.split("/")[2];
+			console.log(this.$route.path)
+			console.log(id)
+			this.fetchDate(id);
+		},
+		methods:{
+			fetchDate(id){
+				var _this=this;
+				this.$http.get('https://way.jd.com/jisuapi/get?channel=头条&num=10&start=0&appkey=91ab6d77051f78585e07966eec10f45e').then(function(res){
+					_this.articleData=res.data.result.result.list[id];
+				}).catch(function(err){
+					console.log('article',err)
+				})
+			}
+		}
+	}
+</script>
 <style scoped>
 	html,body{ overflow-x: hidden; }
 	.nav{width:100%; position:fixed;top:0;left:0; background:#fff; border-bottom:1px solid #e8eaec; z-index:99;}
