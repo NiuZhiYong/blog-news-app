@@ -3,10 +3,8 @@
 		<Loading v-show="loading"></Loading>
 		<NavHeader v-show="headerShow"></Navheader>
 		<div id="view">
-			<transition>
-				<keep-alive>
-					<router-view class="view"></router-view>
-				</keep-alive>
+			<transition name="slide-down">
+					<router-view class="view"></router-view>	
 			</transition>
 		</div>
 		<FooterView></FooterView>
@@ -41,5 +39,16 @@
 	}
 </script>
 <style>
-	@import './assets/css/index.css'
+	@import './assets/css/index.css';
+	.slide-down-enter-active,
+	.slide-down-leave-active{
+		transition: .4s all ease;
+		opacity: 0.7;
+		transform: translate3d(0,5em,0);
+	}
+	.slide-down-enter,
+	.slide-down-leave{
+		opacity: 1;
+		transform: translate3d(0,5em,0);
+	}
 </style>
